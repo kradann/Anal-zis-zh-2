@@ -13,7 +13,7 @@ jobs:
       - name: Typst
         uses: typst-community/setup-typst@v3
       - uses: fontist/setup-fontist@v2
-      - run: fontist install "Microsoft TrueType Core fonts for the Web"
+      - run: fontist install "Times New Roman"
       - run: typst compile masodik.typ masodik.pdf
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
