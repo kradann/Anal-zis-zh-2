@@ -52,7 +52,7 @@ teljesül. Allításunk abból következik, hogy ha $m gt n$, akkor
 
 $ s_m - s_n = a_(n+1)+a_(n+2)+...+a_m $
 #pagebreak()
-.
+
 == Végtelen sorokra vonatkozó összehasonlító kritériumok
 \
 Legyenek $sum(a_n) " és " sum(b_n)$ nemnegatív tagú sorok. Tegyük fel, hogy

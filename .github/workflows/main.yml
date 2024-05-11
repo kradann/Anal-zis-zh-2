@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Typst
-        uses: lvignoli/typst-action@v0
-        with:
-          source_file: |
-            masodik.typ
+        uses: typst-community/setup-typst@v3
+      - uses: fontist/setup-fontist@v2
+      - run: fontist install "Microsoft TrueType Core fonts for the Web"
+      - run: typst compile masodik.typ masodik.pdf
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDFs
           path: |
