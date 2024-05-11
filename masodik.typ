@@ -1,3 +1,5 @@
+#import "@preview/cetz:0.2.2"
+
 #let colorS = color.rgb("#B4D3B4")
 
 #set page(
@@ -150,7 +152,215 @@ $sum(1/n)$ divergens sor esetében $abs(a_n) = 1/n$, azaz $lim_(n arrow +infinit
 \
 $sum(1/n^2)$ konvergens sor esetében $abs(a_n) eq 1/n^2$azaz $lim_(n arrow infinity) abs(a_(n+1))/abs(a_n) eq lim_(n arrow infinity) n^2/(n+1)^2 eq 1$
 #pagebreak()
+
 == Leibniz-típusú sorok konvergenciája
+
+=== Definíció
+
+A $0 lt.eq a_(n+1) lt.eq a_n (n in NN^+)$ feltételt kielégítő sorozatból képzett
+
+$ ∑_(n eq 1) (−1)^(n + 1) a_n eq a_1 − a_2 + a_3 − a_4 + dots $
+
+váltakozó előjelű sort *Leibniz-típusú sornak* nevezzük.
+
+*Konvergencia:* A $sum_(n eq 1) (−1)^(n + 1) a_n$ Leibniz-típusú sor akkor és csak akkor konvergens, ha $lim(a_n) eq 0$.
+
+=== Bizonyítás
+
+$arrow.double$) A sorok konvergenciájának szükséges feltétele értelmében, ha a $sum (−1)^(n + 1) a_n$ sor konvergens, akkor $lim((−1)^(n + 1) a_n) eq 0$, ami csak akkor lehetséges, ha $lim(a_n) eq 0$.
+
+$arrow.double.l$) Tegyük fel, hogy $sum_(n eq 1) (−1)^(n + 1)a_n$ egy Leibniz-típusú sor, és $lim(a_n) eq 0$. Igazoljuk, hogy a sor konvergens. Legyen
+
+$ s_n colon.eq sum_(k eq 1)^n (-1)^(k + 1) a_k eq a_1 - a_2 + a_3 - a_4 + a_5 - dots + (-1)^(n + 1) a_n space space (n in NN^+) $
+
+Szemléltessük az $(s_n)$ részletösszeg-sorozat első néhány tagját!
+
+#v(20pt)
+
+#grid(
+  columns: (auto, auto),
+  gutter: 75pt,
+  [
+    #cetz.canvas({
+      import cetz.draw: *
+
+      set-style(mark: (end: "straight"))
+      line((), (rel: (10, 0), update: true), name: "tengely")
+      content(
+        "tengely.end",
+        [
+          #v(25pt)
+          $RR$
+        ]
+      )
+      circle(
+        ("tengely.start",1,"tengely.end"),
+        radius: .1,
+        name: "s2",
+        fill: black,
+      )
+      content(
+        "s2.center",
+        (0,0),
+        [$s_2$]
+      )
+      circle(
+        ("tengely.start",2.47,"tengely.end"),
+        radius: .1,
+        name: "s4",
+        fill: black,
+      )
+      content(
+        "s4.center",
+        (0,0),
+        [$s_4$]
+      )
+      circle(
+        ("tengely.start",4,"tengely.end"),
+        radius: .1,
+        name: "s5",
+        fill: black,
+      )
+      content(
+        "s5.center",
+        (0,-1),
+        padding: -.7,
+        [$s_5$]
+      )
+      circle(
+        ("tengely.start",5.75,"tengely.end"),
+        radius: .1,
+        name: "s3",
+        fill: black,
+      )
+      content(
+        "s3.center",
+        (0,-1),
+        padding: -.7,
+        [$s_3$]
+      )
+      circle(
+        ("tengely.start",7.75,"tengely.end"),
+        radius: .1,
+        name: "s1",
+        fill: black,
+      )
+      content(
+        "s1.center",
+        (0,0),
+        [$s_1 eq a_1$]
+      )
+      arc(
+        "s2.center",
+        start: -180deg,
+        stop: 0deg,
+        radius: 2.38,
+        name: "s2tos3"
+      )
+      content(
+        (
+          name: "s2tos3",
+          anchor: 50%,
+        ),
+        [
+          #pad(top: 25pt)[
+            $a_3 (lt.eq a_2)$
+          ]
+        ]
+      )
+      arc(
+        "s4.center",
+        start: -180deg,
+        stop: 0deg,
+        radius: .78,
+        name: "s4tos5"
+      )
+        content(
+        (
+          name: "s4tos5",
+          anchor: 50%,
+        ),
+        [
+          #pad(top: 25pt)[
+            $a_5 (lt.eq a_4)$
+          ]
+        ]
+      )
+      arc(
+        "s1.center",
+        start: 0deg,
+        stop: 180deg,
+        radius: 3.38,
+        name: "s1tos2"
+      )
+      content(
+        (
+          name: "s1tos2",
+          anchor: 50%,
+        ),
+        [
+          #pad(top: -15pt)[
+            $a_2 (lt.eq a_1)$
+          ]
+        ]
+      )
+      arc(
+        "s3.center",
+        start: 0deg,
+        stop: 180deg,
+        radius: 1.65,
+        name: "s3tos4"
+      )
+      content(
+        (
+          name: "s3tos4",
+          anchor: 50%,
+        ),
+        [
+          #pad(top: -15pt)[
+            $a_4 (lt.eq a_3)$
+          ]
+        ]
+      )
+    })
+  ],
+  [
+    #show math.equation: set align(left)
+
+    $ s_1 eq a_1 \
+    s_2 eq a_1 - a_2 eq s_1 - a_2 \
+    s_3 eq a_1 - a_2 + a_3 eq s_2 + a_3 \
+    s_4 eq a_1 - a_2 + a_3 - a_4 eq s_3 - a_4 \
+    s_5 eq a_1 - a_2 + a_3 - a_4 + a_5 eq s_4 + a_5 \
+    $
+  ]
+)
+
+Most megmutatjuk, hogy az ábra alapján sejthető tendencia valóban igaz, azaz, hogy
+az $(s_(2n))$ sorozat monoton növekvő, és az $(s_(2n+1))$ sorozat monoton csökkenő.
+
+#pagebreak()
+
+- A páros indexű részsorozatnál a következő csoportosításból látható, hogy $ s_(2n) eq overbrace(underbrace((a_1 − a_2), gt.eq 0) + underbrace((a_3 − a_4), gt.eq 0) + dots + underbrace((a_(2n−3) − a_(2n−2)), gt.eq 0), s_(2n-2)) + underbrace((a_(2n−1) − a_(2n)), gt.eq 0) $ minden $n in NN^+$ esetén, tehát $(s_(2n))$ valóban monoton növekvő.
+- Hasonlóan, a páratlan indexű részsorozatnál $ s_(2n+1) eq overbrace(a_1 + underbrace((-a_2 + a_3), lt.eq 0) + underbrace((-a_4 + a_5), lt.eq 0) + dots + underbrace((-a_(2n−2) + a_(2n−1)), lt.eq 0), s_(2n-1)) + underbrace((-a_(2n) − a_(2n+1)), lt.eq 0) $ minden $n in NN^+$ esetén, tehát $(s_(2n+1))$ monoton csökkenő sorozat.
+
+Másrészt, az $s_0 colon.eq 0$ értelmezés mellett
+
+$ s_(2n+1) − s_(2n) eq a_(2n+1) gt.eq 0 space space (n in NN) $
+
+teljesül, amiből következik, hogy $s_(2n) lt.eq s_(2n+1)$ minden $n in NN$ esetén. Ekkor
+
+$ (1) space space space s_2 lt.eq s_4 lt.eq s_6 lt.eq dots lt.eq s_(2n) lt.eq s_(2n+1) lt.eq dots lt.eq s_5 lt.eq s_3 lt.eq s_1 $
+
+Tehát $(s_(2n))$ és $(s_(2n+1))$ korlátos sorozatok. Mivel mindkettő monoton és korlátos, ezért
+konvergens is. Jelölje $A eq lim(s_(2n+1))$ és $B eq lim(s_(2n))$ a határértéküket. Ekkor
+
+$ A - B eq lim_(n arrow + infinity) s_(2n+1) - lim_(n arrow + infinity) s_(2n) eq lim_(n arrow + infinity) (s_(2n+1) - s_(2n) ) eq lim_(n arrow + infinity) a_(2n+1) eq lim_(n arrow + infinity) a_n eq 0, $
+
+hiszen $(a_(2n+1))$ részsorozata az $(a_n)$ sorozatnak. Ezért $A eq B$, tehát az $(s_(2n))$ és az
+$(s_(2n+1))$ részsorozatok határértéke megegyezik. Ebből következik, hogy az $(s_n)$ sorozat
+konvergens. Ez pedig azt jelenti, hogy a Leibniz-típusú sor valóban konvergens.
+
 #pagebreak()
 == Minden $[0,1]$-beli számok felírható tizedes tört alakban
 \
@@ -204,4 +414,3 @@ $ sum_(n eq 1)^(+infinity) alpha_n eq lim_(n arrow +infinity) sigma_n eq lim_(n 
 == Monoton függvények hatértékei
 #pagebreak()
 == Az összetett függvény folytonossága
-#pagebreak()
