@@ -399,6 +399,20 @@ $ sum_(n eq 1)^(+infinity) alpha_n eq lim_(n arrow +infinity) sigma_n eq lim_(n 
 #pagebreak()
 == Abszolút konvergens sorok átrendezése
 
+Ha a $sum a_n$ végtelen sor abszolút konvergens, akkor tetszőleges $(p_n) : NN arrow NN$ permutációval képzett $sum a_p_n$ átrendezése is abszolút konvergens, és
+$ sum_(n eq 0)^(+ infinity) a_p_n eq sum_(n eq 0)^(+ infinity) a_n $
+Tehát egy abszolút konvergens sor bármely átrendezése is abszolút konvergens sor, és összege ugyanaz, mint az eredeti soré
+
+=== Bizonyítás
+
+Legyen
+
+$ s_n colon.eq sum_(k eq 0)^n a_k "és" sigma_n colon.eq sum_(k eq 0) a_p_k space space space (n in NN) $
+
++ Igazoljuk, hogy a $sum a_p_n$ sor abszolút konvergens. Valóban, mivel $sum a_n$ abszolút konvergens, ezért minden $n in NN$-re $ sum_(k eq 0)^n abs(a_p_k) eq abs(a_(p 0)) + abs(a_(p 1)) + dots + abs(a_(p n)) lt.eq sum_(k eq 0)^(+ infinity) abs(a_k) eq K lt + infinity $ azaz a $sum_(k eq 0)^n abs(a_p_k) space (n in NN)$ sorozat felülről korlátos, de nyilván monoton növekvő is, következésképpen a $sum abs(a_p_n)$ sor konvergens. Így a $sum a_p_n$ sor valóban abszolút konvegens.
+
++ Azt igazoljuk, hogy $ sum_(n eq 0)^(+ infinity) a_p_n eq sum_(n eq 0)^(+ infinity) a_n $ Legyen $ A colon.eq sum_(n eq 0)^(+ infinity) a_n eq lim_(n arrow + infinity) s_n space "és" space B colon.eq sum_(n eq 0)^(+ infinity) a_p_n eq lim_(n arrow + infinity) sigma_n $ Tudjuk, hogy a $sum abs(a_n)$ sor konvergens, így a Cauchy-kritérium szerint $ forall epsilon gt 0"-hoz" exists n_0 in NN, forall m gt n gt.eq n_0: abs(a_(n+1)) + abs(a_(n+2)) + dots + abs(a_m) lt epsilon $ Ezlrt $n eq n_0$ mellett, ha $m gt n_0$, akkor $sum_(k eq n_0 + 1)^(m) abs(a_k) lt epsilon$ \ Adott $epsilon gt 0$-ra tekintsük az $a_0, a_1, a_2, dots, a_(n 0)$ tagokat, és legyen $N_0$ olyan index, amire az $a_p_0 + a_p_1 + dots + a_p_(N_0)$ összeg már tartalmazza ezeket a tagokat. Ilyen $N_0$ nyilván létezik, és $N_0 gt.eq n_0$. Legyen $n gt N_0$. Ekkor $ sigma_n - s_n eq underbrace(\(a_p_0 + a_p_1 + dots + a_p_(N_0)) + a_p_(N_0 + 1) + dots + a_p_n) - \ underbrace(\(a_0 + a_1 + dots + a_n_0) + a_(n_0 + 1) + dots + a_n) $ nem tartalmazza az $a_0, a_1, a_2, dots, a_n_0$ tagokat. Így $ abs(sigma_n - s_n) lt.eq sum_(k eq n_0 + 1)^m abs(a_k) lt epsilon, $ ahol $m colon.eq max{p_0, p_1, dots, p_n}$, hiszen $m gt.eq n gt N_0 gt.eq n_0$. Ez azt jelenti, hogy $(sigma_n - s_n)$ nullsorozat. Ezért $ sigma_n eq (sigma_n - s_n) + s_n arrow.long_(n arrow + infinity) 0 + A eq A, $ azaz $ B eq sum_(n eq 0)^(infinity) a_p_n eq lim_(n arrow + infinity) sigma_n eq lim_(n arrow + infinity) s_n eq sum_(n eq 0)^(infinity) a_n eq A. $
+
 #pagebreak()
 == Sorok téglányszorzatának konvergenciája
 \
