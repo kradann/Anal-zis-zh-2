@@ -592,7 +592,7 @@ $ exists epsilon gt 0, forall n in NN^+"-hoz" exists x_n in K_(1/n) (a) sect D_f
 
 Legyen $x_0 in D_f \\ {a}$ tetszőleges. Az $(x_n) : NN arrow D_f \\ {a}$ sorozat nyilván a-hoz tart (hiszen $x_n in K_(1/n) (a)$), de a függvényértékek $(f(x_n))$ sorozata nem tart A-hoz (hiszen $f(x_n) in.not K_epsilon (A)$), ami ellentmond a feltételünknek.
 #pagebreak()
-== Monoton függvények hatértékei
+== Monoton függvények határértékei
 \
 Legyen $(alpha, beta) subset RR$ tetszőleges (korlátos vagy nem korlátos) nyílt intervallum.
 Ha az f függvény monoton $(alpha, beta)$-n, akkor f-nek $forall a in (alpha, beta)$ pontban létezik a jobb oldali,
