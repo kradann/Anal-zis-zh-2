@@ -89,7 +89,7 @@ határérték. Ekkor
 === Bizonyítás
 Mivel $root(n, abs(a_n)) gt.eq 0 (n in NN)$, ezért $A gt.eq 0$.
 
-1. Tegyük fel, hogy $0 lt.eq A lt.eq 1$
+1. Tegyük fel, hogy $0 lt.eq A lt 1$
 Vegyünk egy $A$ és 1 közötti $q$ számot!
 
 $ lim(root(n,abs(a_n))) lt q arrow.double.long exists n_0 in NN, forall n gt n_0 : root(n,abs(a_n)) lt q, "azaz" abs(a_n) lt q^n $
@@ -609,7 +609,6 @@ $ lim_(a+0) f = sup{f(x) | x in (alpha, beta), x gt a} $
 $ lim_(a-0) f = inf{f(x) | x in (alpha,beta), x lt a} $
 === Bizonyítás
 Tegyük fel, hogy $f arrow.tr (alpha,beta)-n$. A jobb oldali határértékre vonatkozó állítást igazoljuk.
-\
 Legyen
 
 $ m := inf{f(x) | x in (alpha,beta), x gt a} $
