@@ -595,7 +595,6 @@ $ lim_(a+0) f = sup{f(x) | x in (alpha, beta), x gt a} $
 $ lim_(a-0) f = inf{f(x) | x in (alpha,beta), x lt a} $
 === Bizonyítás
 Tegyük fel, hogy $f arrow.tr (alpha,beta)-n$. A jobb oldali határértékre vonatkozó állítást igazoljuk.
-\
 Legyen
 
 $ m := inf{f(x) | x in (alpha,beta), x gt a} $
