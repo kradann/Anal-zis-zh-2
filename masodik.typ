@@ -458,7 +458,7 @@ $ sum_(n eq 0)^N abs(d_n) lt.eq sum_(0 lt.eq i lt.eq I\ 0 lt.eq j lt.eq J) abs(a
 és ez azt jelenti, hogy a $sum abs(d_n)$ nemnegatív tagú sor konvergens, mert részletösszegei korlátosak. Tehát $sum(d_n)$ abszolút konvergens.
 \
 \
-A fentiek érvényesek $d_n eq t_n$ esetén, így a $sum t_n$ téglányszorzat is abszolút konvergens, tehát konvergens is. Ekkor az előző tétel szerint (\*) teljesül a $sum t_n$ sorra, azaz
+A fentiek érvényesek $d_n eq t_n$ esetén, így a $sum t_n$ téglányszorzat is abszolút konvergens, tehát konvergens is. Ekkor a _Sorok téglányszorzatának konvergenciája_ tétel szerint (\*) teljesül a $sum t_n$ sorra, azaz
 
 $ sum_(n eq 0)^(+infinity) t_n eq sum_(n eq 0)^(+infinity) a_n dot.op sum_(n eq 0)^(+infinity) b_n $
 
